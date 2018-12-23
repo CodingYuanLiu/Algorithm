@@ -129,7 +129,8 @@ int main()
     cout << "heapsort:" << (end - start) << endl;
     cout << endl;
     cout << endl;
-    recursive_quicksort(nsmall, 0, 99);
+    //recursive_quicksort(nsmall, 0, 99);
+    heapsort(nsmall, 100);
     cout << "Result:\n";
     for (int i = 0; i < 100;i++)
     {
