@@ -44,7 +44,7 @@ void heapsort(int a[],int n)
     }
     
 }
-
+/*
 void Siftdown(int a[],int i,int len)
 {
     bool done = false;
@@ -68,11 +68,57 @@ void Siftdown(int a[],int i,int len)
         }
     }
 }
+*/
+/*
+void Makeheap(int a[],int len)
+{
+    for (int i = len / 2 - 1; i >= 0;i--)
+    {
+        Siftdown(a, i, len);
+    }
+}*/
+
+void Siftdown(int a[],int i,int len)
+{
+    i = 2 * i + 1;
+    bool done = false;
+    int temp;
+    while(!done)
+    {
+        done = true;
+        if(i>=len)
+            break;
+        if(i+1 < len && a[i+1]>a[i])
+        {
+            i++;
+        }
+        if(a[i] > a[(i-1)/2])
+        {
+            temp = a[i];
+            a[i] = a[(i - 1) / 2];
+            a[(i - 1) / 2] = temp;
+            done = false;
+        }
+    }
+}
 
 void Makeheap(int a[],int len)
 {
     for (int i = len / 2 - 1; i >= 0;i--)
     {
         Siftdown(a, i, len);
+    }
+}
+
+void Heapsort(int a[],int len)
+{
+    Makeheap(a, len);
+    int temp;
+    for (int i = len - 1; i >= 0;i--)
+    {
+        temp = a[i];
+        a[i] = a[0];
+        a[0] = a[temp];
+        Siftdown(a, 0, i);
     }
 }
