@@ -132,3 +132,23 @@ void QuickSort(int a[],int low,int high)
         QuickSort(a, w + 1, high);
     }
 }
+
+void iter_quicksort(int a[],int low,int high)
+{
+    stack<int> st;
+    st.push(low);
+    st.push(high);
+    int lo,hi;
+    while(!st.empty())
+    {
+        hi = st.top();st.pop();
+        lo = st.top();st.pop();
+        if(lo > hi)
+            continue;
+        int w = split(a,lo,hi);
+        st.push(lo);
+        st.push(w-1);
+        st.push(w+1);
+        st.push(hi);
+    }
+}

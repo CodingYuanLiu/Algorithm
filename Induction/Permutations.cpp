@@ -8,7 +8,7 @@ int main()
     int a[4]={1,2,3,4};
     //perm1(a, 0,4);
     int b[4] = {};
-    perm2(b, 4, 4);
+    perm2(b, 1, 4);
     return 0;
 }
 
@@ -43,7 +43,7 @@ void perm1(int a[],int m,int len)
 
 void perm2(int a[],int m,int len)
 {
-    if(m == 0)
+    if(m == len+1)
     {
         print(a, len);
         return;
@@ -56,7 +56,7 @@ void perm2(int a[],int m,int len)
             if(a[j] == 0)
             {
                 a[j] = m;
-                perm2(a,m - 1,len);
+                perm2(a,m + 1,len);
                 a[j] = 0;
             }
         }

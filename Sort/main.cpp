@@ -12,6 +12,7 @@ void mergesort(int a[], int n);
 void QuickSort(int a[], int low, int high);
 void Heapsort(int a[], int len);
 void insertSort(int a[], int len);
+void iter_quicksort(int a[], int low, int high);
 int main()
 {
     int n1[200000],n2[200000],nsmall[100];
@@ -39,9 +40,9 @@ int main()
     cout << endl;
     cout << endl;
     //recursive_quicksort(nsmall, 0, 99);
-    insertSort(nsmall,100);
+    iter_quicksort(nsmall,0,10);
     cout << "Result:\n";
-    for (int i = 0; i < 100;i++)
+    for (int i = 0; i < 10;i++)
     {
         
         cout << nsmall[i] << ' ';

@@ -11,7 +11,7 @@ if p<44 then 将A排序并输出A[k]
 
 令 q = p/5。将A分为q组，每组5个元素。若5不整除p，则排除剩余元素。
 将 q 组中的每一组元素单独排序，取出中项，所有中项的集合为M。
-mm <- select(M,1,q,q/2) 
+mm <- select(M,1,q,q/2向上取) 
 comment:mm为中项的中项 
 将A[low...high]分成三组：
 A1 = {a | a < mm}

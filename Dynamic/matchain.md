@@ -4,7 +4,7 @@
 
 * 设MiM(i+1)...Mj为一串矩阵链，k为i、j间的一个索引，那么Mi,j = Mi,(k-1) Mk,j, 即先计算两个矩阵乘法，再把两个矩阵乘起来即可。k的划分点不同，导致矩阵乘法的乘法次数不同。
 * 因此，从i到j遍历k，找到最小的乘法次数。
-* C[i,j] = min(C[i,k-1]+C[k,j] + ri * rk * rj).k>i && k<=j
+* C[i,j] = min(C[i,k-1]+C[k,j] + ri * rk * r(j+1)).k>i && k<=j
 
 ### 算法
 MATCHAIN
@@ -22,10 +22,12 @@ for d = 1 to n-1
         C[i,j] = MAX
         //由递推公式开始填表
         for k = i+1 to j
-            if C[i,j] > C[i,k-1] + C[k,j] + ri * rj * rk
-            then C[i,j] = C[i,k-1] + C[k,j] + ri * rj * rk
+            if C[i,j] > C[i,k-1] + C[k,j] + ri * r(j+1) * rk
+            then C[i,j] = C[i,k-1] + C[k,j] + ri * r(j+1) * rk
         end for
     end for
 end for
 return C[1,n]
 ```
+### 复杂度
+时间复杂度为O(n^3),空间复杂度为O(n^2)
